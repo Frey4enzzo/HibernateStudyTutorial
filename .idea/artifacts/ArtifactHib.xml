@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="ArtifactHib">
-    <output-path>$PROJECT_DIR$/out/artifacts/ArtifactHib</output-path>
-    <root id="archive" name="ArtifactHib.jar" />
-  </artifact>
-</component>

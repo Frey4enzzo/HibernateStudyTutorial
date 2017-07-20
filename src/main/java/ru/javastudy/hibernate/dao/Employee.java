@@ -5,22 +5,23 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "employee")
+@NamedQuery(query = "select e from Employee as e", name = "getAllEmployees")
 public class Employee implements Serializable{
 
     private int id;
     private String firstname;
     private String lastname;
     private String position;
+    private Integer department_id;
     private Integer age;
     private Department department;
 
     public Employee() {}
 
-    public Employee(String firstname, String lastname, String position, Department department) {
+    public Employee(String firstname, String lastname, String position) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.position = position;
-        this.department = department;
     }
 
     @Id
@@ -65,6 +66,16 @@ public class Employee implements Serializable{
     }
 
     @Basic
+    @Column(name = "department_id")
+    public Integer getDepartment_id() {
+        return department_id;
+    }
+
+    public void setDepartment_id(Integer department_id) {
+        this.department_id = department_id;
+    }
+
+    @Basic
     @Column(name = "age")
     public Integer getAge() {
         return age;
@@ -79,7 +90,7 @@ public class Employee implements Serializable{
     */
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "department_id", insertable = false, updatable = false)
     public Department getDepartment() {
         return this.department;
     }

@@ -2,12 +2,16 @@ package ru.javastudy.hibernate.dao.QueryExample;
 
 
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.criterion.*;
 import ru.javastudy.hibernate.dao.Department;
 import ru.javastudy.hibernate.dao.Employee;
 import ru.javastudy.hibernate.utils.HibernateSessionFactory;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -18,11 +22,13 @@ public class CriteriaExample {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Criteria criteria = session.createCriteria(Employee.class);
+//        Criteria criteria = session.createCriteria(Employee.class);
 
 
         session.getTransaction().commit();
         HibernateSessionFactory.shutdown();
+
+
     }
 
     /**
@@ -89,8 +95,18 @@ public class CriteriaExample {
      * System.out.println("maxage: " + obj[0] + " minage: " + obj[1] + " avgage: " + obj[2]);
      * }
      * ------------------------------------------------------------------------------
-     * TODO: Доделать и почитать про JOIN Tables
-     *
+     * TODO: INNER JOIN
+     * String query = "SELECT firstname, lastname, position, department.name from employee\n" +
+     * "  inner join department on employee.department_id = department.id";
+     * SQLQuery query1 = session.createSQLQuery(query);
+     * List list = query1.list();
+     * for (Object o : list) {
+     * Object[] array = (Object[]) o;
+     * System.out.print(array[0] + " ");
+     * System.out.print(array[1] + " ");
+     * System.out.print(array[2] + " ");
+     * System.out.print(array[3] + " |");
+     }
      * ------------------------------------------------------------------------------
      *
      */

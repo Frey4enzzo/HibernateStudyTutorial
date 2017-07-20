@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Hibernate OneToMany/ru.javastudy.hibernateStart.iml" filepath="$PROJECT_DIR$/../Hibernate OneToMany/ru.javastudy.hibernateStart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ru.javastudy.hibernateStart.iml" filepath="$PROJECT_DIR$/ru.javastudy.hibernateStart.iml" />
+      <module fileurl="file://D:\JavaProjects\Hibernate OneToMany\ru.javastudy.hibernateStart.iml" filepath="D:\JavaProjects\Hibernate OneToMany\ru.javastudy.hibernateStart.iml" />
     </modules>
   </component>
 </project>
